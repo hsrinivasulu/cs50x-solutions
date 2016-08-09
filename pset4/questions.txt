@@ -1,0 +1,19 @@
+0.  GIF supports merely 256 colors, JPEG & PNG both support upto 16 million colors, whereas BMP images support 2^48, i.e 281 trillion colors.
+1.  GIFs most commonly support animation.
+2.  Lossy compression results in smaller file sizes with a significant loss of data, whereas lossless compression doesn’t offer great reduction in file size, but is without the tradeoff of data loss.
+3.  JPEG is lossy compressed whereas the rest are usually not.
+4.  Contrary to popular belief, when a FAT file is erased, the file data is left untouched; instead, the filename of the file is modified to indicate that it is a file that has been marked for deletion, and the clusters that the file occupies are marked as free clusters, which may now be used to store new data.
+5.  Overwrite the file cluster with junk data multiple times.
+6.  stdint.h is a header file that contains definitions of a few data types used to hold integers. These definitions help one implement variables/constants of commonly used specifications of data types (e.g signed 8 bit integer (int8_t))
+7.  uint8_t , uint32_t , int32_t , and uint16_t are examples of data types defined in stdint.h. These help when one needs to assign a specific amount of space to be used by an integer variable.
+8.  BYTE - 1 byte, DWORD - 4 bytes, LONG - 4 bytes, WORD - 2 bytes.
+9.  bfType = 19778 in decimal
+10. bfSize refers to size of the bmp file as a whole in bytes, whereas biSize refers to the size of the bitmap information header
+11. A negative biHeight implies that the blimp is a top-down bitmap, with origin at the upper left corner, as opposed to bottom-up bitmaps which store their data upside down
+12. biBitCount specifies the number of bits per pixel.
+13. fopen() in line 37 may return null for a number of reasons: if the operating system runs out of memory, if there isn’t enough disk space in that directory in order to create a new file, or if fopen() runs into an error while creating the file.
+14. The third argument to fread() is to specify how many units of the specified number of bytes is to be read at once. Since we need to read only one BITMAPFILEHEADER/BITMAPINFOHEADER/RGBTRIPLE worth of data at once, the third argument is always one throughout our program.
+15. The value of padding will be 3 if bi.biWidth is 3;
+16. fseek() is used to move the ‘file cursor’ of an open file, so that any future fread/fwrite operations occur from a different location
+17. SEEK_CUR refers to the current location of the file cursor in an open file, which is used as an argument in fseek() to specify from which position should the cursor be shifted
+18. Rob Bowden

@@ -1,0 +1,11 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis is a pulmonary condition arising from the inhalation of microscopic dust.
+1.  getrusage stores data relating to resource usage such as runtime, memory usage etc. in a rusage struct.
+2.  16 members, 14 longs, 2 struct timeval
+3.  as rusage is a large struct, passing it by value would mean transferring a lot of data. Hence, passing a pointer is far more efficient.
+4.  the for loop parses the text file one character at a time, checking whether end-of-file has been reached at the end of the loop. in the body of the loop, valid characters are appended to a buffer char* variable. If an invalid character (like a digit) is encountered, or if the word is too long, the rest of its characters are iterated over. Should all of these scenarios not occur, the only possibility is that the program has encountered a '\n' character, and so, a null character is appended to the buffer, and the word is passed to the checking function declared in dictionary.c, and misspelled words are printed. Thus, the program iterates over all the words in the given file until it encounters EOF.
+5.  one doesn't know the number of characters to expect from a string being read (this could potentially lead to a buffer overflow). in addition, parsing the string for individual words would be significantly tougher.
+6.  in order to prevent the code from modifying the data passed in
+7.  I used a trie, with a global 'master node' named start which was declared in dictionary.c. each node consists of a bool to indicate the end of the word, as well as an array of pointers to 27 other nodes.
+8.  the first time I executed my code, it didn't complete execution in over fifteen minutes!
+9.  I switched from using a hash table to a trie, and saw significant boosts in performance in load and check. Check seemed to be the greatest beneficiary, as there was far less brute force involved.
+10. I guess I was able to overcome most bottlenecks that were present in the previous versions of the program by using a trie; however, I was unable to implement a better hashing function than the one I used without increasing complexity disproportionate to the performance gains :(
